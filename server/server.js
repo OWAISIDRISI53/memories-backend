@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require("express")
 const mongoose = require("mongoose")
 const bodyParser = require("body-parser")
@@ -13,7 +14,7 @@ const connectMongo = require("./db");
 const User = require("./models/User");
 
 
-const PORT = 8000
+const PORT = process.env.PORT || 8000
 
 
 app.use(bodyParser.json({ limit: '30mb', extended: true }))

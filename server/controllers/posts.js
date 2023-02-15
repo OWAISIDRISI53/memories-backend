@@ -64,7 +64,22 @@ const likePost = async (req, res) => {
         res.status(404).send(error)
     }
 }
+const userPosts = async (req, res) => {
+    const { id } = req.params;
+
+    if (!req.user.id) {
+        return res.json({ message: "Unauthenticated" });
+    }
+    try {
+        const userPost = await Post.find({ creator: { $eq: id } })
+        res.status(200).json(userPost)
+    } catch (error) {
+        res.status(400).json(error)
+    }
+
+}
+
 
 module.exports = {
-    getPosts, createPost, deleteAll, deletePost, likePost
+    getPosts, createPost, deleteAll, deletePost, likePost, userPosts
 }

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 // const MONGO_URI = "mongodb://localhost/memories"
 
-const MONGO_URI = "mongodb+srv://owais05:XwyNehrgfpfLWJRE@cluster0.m3bzife.mongodb.net/memorie?retryWrites=true&w=majority"
+const MONGO_URI = process.env.MONGO_URI
 
 
 const connectMongo = () => {
