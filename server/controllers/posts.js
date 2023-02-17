@@ -71,8 +71,9 @@ const userPosts = async (req, res) => {
         return res.json({ message: "Unauthenticated" });
     }
     try {
-        const userPost = await Post.find({ creator: { $eq: id } })
-        res.status(200).json(userPost)
+        const no_of_post = await Post.find({ creator: { $eq: id } })
+
+        res.status(200).json(no_of_post)
     } catch (error) {
         res.status(400).json(error)
     }
